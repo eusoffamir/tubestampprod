@@ -6,10 +6,19 @@ import { generateTimestamps } from '../../firebase';
 const YOUTUBE_API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
 
 function extractVideoId(url) {
-  // Handles various YouTube URL formats
-  const regex = /(?:youtube\.com\/(?:[^\/\n\s]+\/|(?:v|e(?:mbed)?|shorts)\/|.*[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
-  const match = url.match(regex);
-  return match ? match[1] : null;
+  // Handles various YouTube URL formats (desktop, mobile, youtu.be, with params)
+  if (!url) return null;
+  // Try to match the video ID in all common formats
+  const patterns = [
+    /(?:youtube\.com\/(?:.*[?&]v=|v\/|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/, // Standard, embed, shorts, youtu.be
+    /youtube\.com\/watch\?.*v=([a-zA-Z0-9_-]{11})/, // watch?v=...
+    /youtu\.be\/([a-zA-Z0-9_-]{11})/, // youtu.be/...
+  ];
+  for (const pattern of patterns) {
+    const match = url.match(pattern);
+    if (match && match[1]) return match[1];
+  }
+  return null;
 }
 
 const Timestamp = ({ onTimestampsGenerated }) => {
@@ -21,7 +30,7 @@ const Timestamp = ({ onTimestampsGenerated }) => {
   const [isFetchingVideo, setIsFetchingVideo] = useState(false);
 
   const youtubeRegex = /^(https?:\/\/)?(www\.)?(youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)[a-zA-Z0-9_-]{11}(&.*)?$/;
-  const isValidUrl = url && youtubeRegex.test(url);
+  const isValidUrl = url && extractVideoId(url);
   const isEmpty = !url;
 
   useEffect(() => {
