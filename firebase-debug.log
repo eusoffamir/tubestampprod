@@ -1,0 +1,14 @@
+[debug] [2025-07-09T09:51:15.954Z] ----------------------------------------------------------------------
+[debug] [2025-07-09T09:51:15.956Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Eusoff\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js emulators:start
+[debug] [2025-07-09T09:51:15.957Z] CLI Version:   14.9.0
+[debug] [2025-07-09T09:51:15.957Z] Platform:      win32
+[debug] [2025-07-09T09:51:15.957Z] Node Version:  v22.17.0
+[debug] [2025-07-09T09:51:15.957Z] Time:          Wed Jul 09 2025 17:51:15 GMT+0800 (Malaysia Time)
+[debug] [2025-07-09T09:51:15.957Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-07-09T09:51:16.222Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-07-09T09:51:16.222Z] > authorizing via signed-in user (eusoffamir@gmail.com)
+[info] i  emulators: Starting emulators: functions, hosting, extensions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions, hosting, extensions"}}
+[debug] [2025-07-09T09:51:16.226Z] Checked if tokens are valid: true, expires at: 1752055628687
+[debug] [2025-07-09T09:51:16.227Z] Checked if tokens are valid: true, expires at: 1752055628687
+[debug] [2025-07-09T09:51:16.227Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/tubestampprod-3ff40 [none]
