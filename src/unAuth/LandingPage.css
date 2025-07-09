@@ -2,21 +2,29 @@
   min-height: 100vh;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
+  flex-direction: column;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.landing-page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 20px;
 }
 
 .landing-content {
   text-align: center;
   max-width: 800px;
+  margin: 0 auto;
   background: rgba(255, 255, 255, 0.95);
   padding: 40px;
   border-radius: 20px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
   animation: fadeInUp 0.8s ease-out;
+  margin-top: 120px;
+  margin-bottom: 40px;
 }
 
 .landing-title {
@@ -108,6 +116,7 @@
 @media (max-width: 768px) {
   .landing-content {
     padding: 30px 20px;
+    margin-top: 100px;
   }
   
   .landing-title {
