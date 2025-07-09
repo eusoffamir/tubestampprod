@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Timestamp.css';
 import History, { addToHistory } from './history';
+import { generateTimestamps } from '../../firebase';
 
 const YOUTUBE_API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
 
@@ -89,16 +90,10 @@ const Timestamp = ({ onTimestampsGenerated }) => {
     if (!isValidUrl) return;
     setIsGenerating(true);
     setError("");
-    const payload = { url };
+    const payload = { url, language };
     try {
-      const response = await fetch("https://us-central1-tubestampprod-3ff40.cloudfunctions.net/generate_timestamps", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(payload)
-      });
-      const data = await response.json();
+      const result = await generateTimestamps(payload);
+      const data = result.data;
       if (data.timestamps_list) {
         handleTimestampsGenerated(data.timestamps_list);
       } else if (data.timestamps_string) {

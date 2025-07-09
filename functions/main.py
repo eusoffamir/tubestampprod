@@ -4,6 +4,7 @@ from firebase_admin import initialize_app
 from flask import Response, request, jsonify, make_response
 import os
 import requests
+import json
 
 initialize_app()
 BUMPUPS_API_KEY = os.getenv("BUMPUPS_API_KEY")
@@ -23,25 +24,39 @@ def on_request_example(req):
     enforce_app_check=True   # Reject missing/invalid App Check tokens
 )
 def generate_timestamps(req: https_fn.CallableRequest) -> dict:
+    # Log function entry
+    print("=== generate_timestamps: FUNCTION ENTRY ===")
+    print("generate_timestamps: Function called successfully")
+    
     # Log incoming request
     print("generate_timestamps: received data:", req.data)
+    print("generate_timestamps: req.auth object:", req.auth)
+    print("generate_timestamps: req.app object:", getattr(req, "app", None))
 
     # 1) Auth guard
+    print("generate_timestamps: Checking authentication...")
     if not req.auth or not req.auth.uid:
         print("generate_timestamps: ❌ Auth failed; req.auth =", req.auth)
+        print("generate_timestamps: Auth check result: FAILED")
         return {"error": "Authentication required."}
     print(f"generate_timestamps: ✅ Auth passed for UID={req.auth.uid}")
+    print("generate_timestamps: Auth check result: PASSED")
 
     # 2) App Check guard
+    print("generate_timestamps: Checking app check...")
     if not getattr(req, "app", None):
         print("generate_timestamps: ❌ App Check failed; req.app =", getattr(req, "app", None))
+        print("generate_timestamps: App check result: FAILED")
         return {"error": "App Check required."}
     print("generate_timestamps: ✅ App Check passed; app token info:", req.app)
+    print("generate_timestamps: App check result: PASSED")
 
     # 3) Extract & validate parameters
+    print("generate_timestamps: Extracting parameters...")
     youtube_url = req.data.get("url")
     if not youtube_url:
         print("generate_timestamps: ❌ Missing URL")
+        print("generate_timestamps: Parameter validation: FAILED - missing URL")
         return {"error": "Missing YouTube URL."}
 
     lang = req.data.get("language", "en")
@@ -50,11 +65,14 @@ def generate_timestamps(req: https_fn.CallableRequest) -> dict:
         lang = "en"
 
     print(f"generate_timestamps: Calling Bumpups API for URL={youtube_url}, language={lang}")
+    print("generate_timestamps: Parameter validation: PASSED")
 
     # 4) Prepare Bumpups request
+    print("generate_timestamps: Preparing Bumpups request...")
     api_key = os.environ.get('BUMPUPS_API_KEY')
     if not api_key:
         print("generate_timestamps: ❌ API key not set in environment variables")
+        print("generate_timestamps: API key check: FAILED")
         return {"error": "API key not set"}
 
     headers = {
@@ -69,6 +87,7 @@ def generate_timestamps(req: https_fn.CallableRequest) -> dict:
     }
 
     # 5) Call Bumpups
+    print("generate_timestamps: Making Bumpups API call...")
     try:
         resp = requests.post(
             "https://api.bumpups.com/general/timestamps",
@@ -79,8 +98,10 @@ def generate_timestamps(req: https_fn.CallableRequest) -> dict:
         resp.raise_for_status()
         result = resp.json()
         print("generate_timestamps: Bumpups API success, returning result")
+        print("=== generate_timestamps: FUNCTION EXIT SUCCESS ===")
         return result
 
     except requests.RequestException as e:
         print("generate_timestamps: Bumpups API error:", str(e))
+        print("=== generate_timestamps: FUNCTION EXIT ERROR ===")
         return {"error": str(e)}
