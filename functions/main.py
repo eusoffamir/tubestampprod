@@ -27,7 +27,6 @@ def on_request_example(req):
     response.headers['Access-Control-Allow-Origin'] = '*'
     return response
 
-
 @https_fn.on_request()
 def generate_timestamps(req):
     print("generate_timestamps called")
@@ -90,7 +89,18 @@ def generate_timestamps(req):
         return response
     except requests.RequestException as e:
         print(f"RequestException: {e}, response: {getattr(e.response, 'text', None)}")
-        error_json = jsonify({'error': str(e), 'details': getattr(e.response, 'text', None)}).get_data(as_text=True)
+        error_message = str(e)
+        details = getattr(e.response, 'text', None)
+        # Try to extract the bumpups.com error message
+        if details:
+            try:
+                import json as pyjson
+                details_json = pyjson.loads(details)
+                if 'error' in details_json and 'message' in details_json['error']:
+                    error_message = details_json['error']['message']
+            except Exception:
+                pass
+        error_json = jsonify({'error': error_message}).get_data(as_text=True)
         response = make_response(error_json, 500)
         response.headers['Content-Type'] = 'application/json'
         response.headers['Access-Control-Allow-Origin'] = '*'
