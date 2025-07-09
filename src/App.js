@@ -19,6 +19,7 @@ function App() {
     <div className="App">
       <Helmet>
         <meta name="description" content="StampTube - Your YouTube timestamp tool" />
+        <meta name="keywords" content="YouTube, timestamp, video, bookmark, tool, StampTube, video navigation, time markers" />
       </Helmet>
       <LandingPage />
     </div>

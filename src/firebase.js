@@ -1,9 +1,8 @@
 // src/firebase.js
 
-// Import the Firebase SDK pieces you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getFunctions, connectFunctionsEmulator } from "firebase/functions";
+import { getFunctions, connectFunctionsEmulator, httpsCallable } from "firebase/functions";
 import {
   getAuth,
   signInAnonymously,
@@ -63,4 +62,7 @@ export {
   analytics,
   auth,
   functions,
+  appCheck,
 };
+
+export const generateTimestamps = httpsCallable(functions, "generate_timestamps");
