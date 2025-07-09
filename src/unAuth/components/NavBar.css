@@ -1,0 +1,90 @@
+.navbar {
+  background: #18181b;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  border: 1.5px solid #2d2d2d;
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 2rem;
+  position: static;
+  z-index: 1;
+}
+
+.nav-logo-simple {
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo-text {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.nav-logo-blue {
+  color: #3b82f6;
+}
+
+.nav-logo-white {
+  color: #fff;
+}
+
+.nav-chatbot-btn {
+  background: #3b82f6;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.7rem 2.2rem;
+  font-size: 1.08rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background 0.2s;
+  justify-content: center;
+}
+
+.nav-chatbot-btn:hover {
+  background: #2563eb;
+}
+
+.nav-chatbot-arrow {
+  font-size: 1.1em;
+  margin-left: 0.6em;
+}
+
+/* Remove unused styles for nav-menu, nav-buttons, etc. */
+
+@media (max-width: 600px) {
+  .navbar {
+    max-width: 98vw;
+    width: 82%;
+    padding: 0.7rem 0.7rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.1rem;
+  }
+  .nav-logo-simple img {
+    margin-right: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .nav-logo-text {
+    font-size: 1.4rem;
+    text-align: center;
+    width: 100%;
+    display: block;
+  }
+  .nav-chatbot-btn {
+    padding: 0.5rem 1.1rem;
+    font-size: 0.95rem;
+    width: 100%;
+    max-width: 320px;
+  }
+}

@@ -1,0 +1,252 @@
+.bumpups-section {
+  padding: 0;
+  background: #232323;
+  min-height: 50vh;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.bumpups-container {
+  max-width: 1200px;   /* or 1300px, 1400px as you prefer */
+  width: 95%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: left;
+}
+
+.bumpups-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.bumpups-highlight {
+  color: #fff;
+}
+
+.bumpups-green {
+  color: #2ee59d;
+}
+
+.bumpups-subtitle {
+  color: #e0e0e0;
+  font-size: 1.05rem;
+}
+
+.bumpups-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.bumpup-card {
+  background: #111112;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  border: 1.5px solid #2d2d2d;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10rem;
+  min-height: 100px;
+  height: 100px;
+  transition: box-shadow 0.2s, transform 0.2s;
+  width: 90%;           /* Makes the card 90% of the container */
+  /* or */
+  width: 320px;         /* Fixed width */
+  /* or */
+  width: fit-content;   /* Shrinks to fit content */
+  /* or */
+  width: max-content;   /* Widest content */
+}
+
+.bumpup-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem; /* Adjust this value as needed */
+}
+
+.bumpup-label {
+  background: #2ee59d;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  padding: 0.3rem 1.2rem;
+  display: inline-block;
+}
+
+.bumpup-link {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: color 0.2s;
+  margin-top: 0.2rem;
+  position: relative;
+}
+
+.bumpup-link:hover {
+  color: #2ee59d;
+  text-decoration: underline;
+}
+
+.bumpup-link:hover .bumpup-arrow {
+  transform: translateX(6px);
+}
+
+.bumpup-arrow {
+  font-size: 1.3rem;
+  margin-right: 0.5rem;
+  transition: transform 0.2s;
+}
+
+.bumpup-icon {
+  font-size: 4rem;
+  color: #fff;
+  margin-left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bumpup-separator {
+  border: none;
+  border-top: 3px dashed #ccc;
+  width: 100%;
+  margin: 5rem auto;
+  opacity: 0.7;
+}
+
+.timestamp-container {
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  border: 1.5px solid #2d2d2d;
+}
+
+.footer-card {
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  border: 1.5px solid #2d2d2d;
+}
+
+@media (max-width: 900px) {
+  .bumpups-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .bumpups-title {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  .bumpups-subtitle {
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 3rem;
+  }
+  .bumpup-card {
+    --bumpup-card-gap: 0.4rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 1.2rem 0.8rem;
+    gap: var(--bumpup-card-gap);
+    min-height: 70px;
+    height: auto;
+    border-radius: 18px;
+    background: #18191b;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+    border: 1.5px solid #232323;
+    width: 90%;           /* Makes the card 90% of the container */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .bumpup-left {
+    flex: initial;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .bumpup-label {
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.3rem 1.1rem;
+    border-radius: 8px;
+    margin-bottom: 0.2rem;
+  }
+  .bumpup-link {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 0.1rem;
+    margin-bottom: 0.2rem;
+  }
+  .bumpup-arrow {
+    font-size: 1.1rem;
+    margin-right: 0.4rem;
+  }
+  .bumpup-icon {
+    font-size: 2.5rem;
+    align-self: center;
+    color: #2ee59d;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .bumpups-container {
+    width: 85%;
+    padding: 0 0.2rem;
+  }
+  .bumpups-title {
+    font-size: 1rem;
+  }
+  .bumpups-subtitle {
+    font-size: 0.92rem;
+    margin-bottom: 0.5rem; /* Reduced from default or 3rem to minimize vertical gap */
+  }
+  .bumpup-card {
+    --bumpup-card-gap: 3rem;
+    padding: 1rem 0.2rem;
+    gap: var(--bumpup-card-gap);
+    min-height: 50px;
+    border-radius: 14px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 80%;           /* Makes the card 90% of the container */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .bumpup-left {
+    flex: initial;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .bumpup-label {
+    font-size: 0.9rem;
+    padding: 0.18rem 0.7rem;
+    border-radius: 7px;
+  }
+  .bumpup-link {
+    font-size: 0.85rem;
+  }
+  .bumpup-arrow {
+    font-size: 0.95rem;
+    margin-right: 0.2rem;
+  }
+  .bumpup-icon {
+    font-size: 2rem;
+    align-self: center;
+    flex-shrink: 0;
+  }
+}
