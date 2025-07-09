@@ -4,6 +4,8 @@
   display: flex;
   flex-direction: column;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  gap: 1rem; /* or your preferred value */
+  padding-top: 1.5rem; /* Add this for top space */
 }
 
 .landing-page-container {
@@ -23,15 +25,14 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
   animation: fadeInUp 0.8s ease-out;
-  margin-top: 120px;
-  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
 }
 
 .landing-title {
   font-size: 3.5rem;
   font-weight: 700;
   color: #2d3748;
-  margin-bottom: 20px;
   background: linear-gradient(45deg, #667eea, #764ba2);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -41,7 +42,6 @@
 .landing-subtitle {
   font-size: 1.3rem;
   color: #718096;
-  margin-bottom: 40px;
   font-weight: 300;
 }
 
@@ -49,7 +49,6 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
-  margin-bottom: 40px;
 }
 
 .feature-card {
@@ -116,7 +115,7 @@
 @media (max-width: 768px) {
   .landing-content {
     padding: 30px 20px;
-    margin-top: 100px;
+    gap: 24px;
   }
   
   .landing-title {

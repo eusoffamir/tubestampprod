@@ -1,5 +1,5 @@
 .bumpups-section {
-  padding: 0.1rem 0 0 0;
+  padding: 0;
   background: #232323;
   min-height: 50vh;
   padding-left: 0;
@@ -18,7 +18,6 @@
   font-size: 2.2rem;
   font-weight: 700;
   color: #fff;
-  margin-bottom: 0.5rem;
 }
 
 .bumpups-highlight {
@@ -32,14 +31,12 @@
 .bumpups-subtitle {
   color: #e0e0e0;
   font-size: 1.05rem;
-  margin-bottom: 2.5rem;
 }
 
 .bumpups-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
-  margin-top: 1.5rem;
 }
 
 .bumpup-card {
