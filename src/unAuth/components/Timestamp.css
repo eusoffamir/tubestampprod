@@ -8,7 +8,7 @@
   max-width: 1200px;
   width: 90%;
   margin: 24px auto 0 auto;
-  padding: 2.5rem 2rem;
+  padding: 2rem 1.5rem;
   text-align: left;
   background: #111112;
   border: 1.5px solid #2d2d2d;
@@ -18,18 +18,21 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 24px;
 }
 
 .main-title {
   font-size: 2.3rem;
   font-weight: 800;
   color: #fff;
+  margin-bottom: 0.3em;
+  line-height: 1.1;
 }
 
 .subtitle {
   font-size: 1.08rem;
   color: #d1d5db;
+  margin-bottom: 1.2em;
+  line-height: 1.5;
 }
 
 .subtitle a {
@@ -39,9 +42,10 @@
 
 .timestamp-form {
   display: flex;
-  gap: 0.7rem;
+  gap: 1rem;
   align-items: center;
   flex-wrap: wrap;
+  margin-top: 0;
 }
 
 .input-group {
@@ -114,6 +118,40 @@
   width: 100%;
 }
 
+.video-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.video-thumbnail {
+  max-width: 480px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.18), 0 1.5px 6px 0 rgba(0,0,0,0.10);
+  background: #18181b;
+}
+
+.video-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  margin-top: 0.5rem;
+  word-break: break-word;
+}
+
+.video-preview-loading {
+  margin-top: 2rem;
+  text-align: center;
+  color: #60a5fa;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
 @media (max-width: 700px) {
   .timestamp-section {
     min-height: 100vh;
@@ -131,5 +169,11 @@
   }
   .input-group {
     min-width: 0;
+  }
+  .video-thumbnail {
+    max-width: 100%;
+  }
+  .video-title {
+    font-size: 1.05rem;
   }
 }

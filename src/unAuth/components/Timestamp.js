@@ -1,11 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Timestamp.css';
+
+const YOUTUBE_API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
+
+function extractVideoId(url) {
+  // Handles various YouTube URL formats
+  const regex = /(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?|shorts)\/|.*[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+  const match = url.match(regex);
+  return match ? match[1] : null;
+}
 
 const Timestamp = () => {
   const [url, setUrl] = useState('');
   const [language, setLanguage] = useState('English');
   const [error, setError] = useState('');
   const [isGenerating, setIsGenerating] = useState(false);
+  const [videoData, setVideoData] = useState(null);
+  const [isFetchingVideo, setIsFetchingVideo] = useState(false);
 
   // YouTube URL regex patterns
   const youtubeRegex = /^(https?:\/\/)?(www\.)?(youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)[a-zA-Z0-9_-]{11}(&.*)?$/;
@@ -37,7 +48,44 @@ const Timestamp = () => {
   const handleUrlChange = (e) => {
     setUrl(e.target.value);
     setError(''); // Clear error when user starts typing
+    setVideoData(null); // Reset video preview on URL change
   };
+
+  useEffect(() => {
+    const fetchVideoData = async () => {
+      setVideoData(null);
+      setIsFetchingVideo(false);
+      if (!url || !youtubeRegex.test(url)) return;
+      const videoId = extractVideoId(url);
+      if (!videoId) return;
+      setIsFetchingVideo(true);
+      try {
+        const apiUrl = `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${YOUTUBE_API_KEY}`;
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        if (data.items && data.items.length > 0) {
+          const snippet = data.items[0].snippet;
+          setVideoData({
+            title: snippet.title,
+            thumbnail:
+              snippet.thumbnails.maxres?.url ||
+              snippet.thumbnails.standard?.url ||
+              snippet.thumbnails.high?.url ||
+              snippet.thumbnails.medium?.url ||
+              snippet.thumbnails.default?.url,
+          });
+        } else {
+          setVideoData(null);
+        }
+      } catch (err) {
+        setVideoData(null);
+      } finally {
+        setIsFetchingVideo(false);
+      }
+    };
+    fetchVideoData();
+    // eslint-disable-next-line
+  }, [url]);
 
   return (
     <section className="timestamp-section">
@@ -77,6 +125,19 @@ const Timestamp = () => {
           </button>
           {error && <div className="error-message">{error}</div>}
         </form>
+        {isFetchingVideo && url && youtubeRegex.test(url) && (
+          <div className="video-preview-loading">Loading video preview...</div>
+        )}
+        {videoData && (
+          <div className="video-preview">
+            <img
+              className="video-thumbnail"
+              src={videoData.thumbnail}
+              alt="YouTube video thumbnail"
+            />
+            <div className="video-title">{videoData.title}</div>
+          </div>
+        )}
       </div>
     </section>
   );
