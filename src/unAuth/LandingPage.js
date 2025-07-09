@@ -9,13 +9,8 @@ const LandingPage = () => {
   return (
     <div className="landing-page">
       <NavBar />
-      <div className="landing-content">
-        <h1 className="landing-title">Hello Landing Page</h1>
-        <p className="landing-subtitle">Welcome to our amazing application!</p>
-        <button className="cta-button">Get Started</button>
-      </div>
-      <Bumpups />
       <Timestamp />
+      <Bumpups />
       <Footer />
     </div>
   );

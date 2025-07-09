@@ -1,103 +1,73 @@
 .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-  padding: 1rem 0;
-}
-
-.nav-container {
+  background: #18181b;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  border: 1.5px solid #2d2d2d;
   max-width: 1200px;
-  margin: 0 auto;
+  width: 90%;
+  margin: 3.5rem auto 0 auto;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 0 2rem;
+  justify-content: space-between;
+  padding: 1.1rem 2rem;
+  position: static;
+  z-index: 1;
 }
 
-.nav-logo h2 {
-  color: #667eea;
+.nav-logo-simple {
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo-text {
+  font-size: 1.5rem;
   font-weight: 700;
-  font-size: 1.8rem;
-  margin: 0;
+  letter-spacing: 0.5px;
 }
 
-.nav-menu {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  gap: 2rem;
+.nav-logo-blue {
+  color: #3b82f6;
 }
 
-.nav-item {
-  margin: 0;
+.nav-logo-white {
+  color: #fff;
 }
 
-.nav-link {
-  text-decoration: none;
-  color: #2d3748;
-  font-weight: 500;
-  transition: color 0.3s ease;
-  font-size: 1rem;
-}
-
-.nav-link:hover {
-  color: #667eea;
-}
-
-.nav-buttons {
-  display: flex;
-  gap: 1rem;
-}
-
-.nav-btn {
-  padding: 0.5rem 1.5rem;
+.nav-chatbot-btn {
+  background: #3b82f6;
+  color: #fff;
   border: none;
-  border-radius: 25px;
+  border-radius: 6px;
+  padding: 0.7rem 2.2rem;
+  font-size: 1.08rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  transition: background 0.2s;
 }
 
-.login-btn {
-  background: transparent;
-  color: #667eea;
-  border: 2px solid #667eea;
+.nav-chatbot-btn:hover {
+  background: #2563eb;
 }
 
-.login-btn:hover {
-  background: #667eea;
-  color: white;
+.nav-chatbot-arrow {
+  font-size: 1.1em;
+  margin-left: 0.6em;
 }
 
-.signup-btn {
-  background: linear-gradient(45deg, #667eea, #764ba2);
-  color: white;
-}
+/* Remove unused styles for nav-menu, nav-buttons, etc. */
 
-.signup-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
-}
-
-/* Mobile responsive */
-@media (max-width: 768px) {
-  .nav-menu {
-    display: none;
+@media (max-width: 600px) {
+  .navbar {
+    max-width: 98vw;
+    padding: 0.7rem 0.7rem;
   }
-  
-  .nav-buttons {
-    gap: 0.5rem;
+  .nav-logo-text {
+    font-size: 1.1rem;
   }
-  
-  .nav-btn {
-    padding: 0.4rem 1rem;
-    font-size: 0.8rem;
+  .nav-chatbot-btn {
+    padding: 0.5rem 1.1rem;
+    font-size: 0.95rem;
   }
 }

@@ -1,49 +1,32 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './Timestamp.css';
 
 const Timestamp = () => {
-  const [currentTime, setCurrentTime] = useState(new Date());
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTime(new Date());
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <section className="timestamp-section">
       <div className="timestamp-container">
-        <h2 className="timestamp-title">Live Timestamp</h2>
-        <div className="timestamp-display">
-          <div className="time-card">
-            <div className="time-label">Current Time</div>
-            <div className="time-value">
-              {currentTime.toLocaleTimeString()}
-            </div>
+        <h1 className="main-title">AI YouTube Timestamps</h1>
+        <p className="subtitle">
+          Generates timestamps for a given YouTube video using the bump-1.0 model—for uninterrupted, priority service <a href="https://bumpups.com" target="_blank" rel="noopener noreferrer">bumpups.com</a>.
+        </p>
+        <form className="timestamp-form">
+          <div className="input-group">
+            <span className="input-icon">🔗</span>
+            <input
+              type="text"
+              className="url-input"
+              placeholder="Enter YouTube video URL"
+            />
           </div>
-          <div className="time-card">
-            <div className="time-label">Current Date</div>
-            <div className="time-value">
-              {currentTime.toLocaleDateString()}
-            </div>
-          </div>
-        </div>
-        <div className="timestamp-features">
-          <div className="feature-item">
-            <span className="feature-icon">⏱️</span>
-            <span>Real-time updates</span>
-          </div>
-          <div className="feature-item">
-            <span className="feature-icon">🌍</span>
-            <span>Global timezone support</span>
-          </div>
-          <div className="feature-item">
-            <span className="feature-icon">📱</span>
-            <span>Mobile responsive</span>
-          </div>
-        </div>
+          <select className="lang-select">
+            <option>English</option>
+            <option>Spanish</option>
+            <option>French</option>
+            <option>German</option>
+            <option>Japanese</option>
+          </select>
+          <button type="submit" className="generate-btn">Generate Timestamps</button>
+        </form>
       </div>
     </section>
   );

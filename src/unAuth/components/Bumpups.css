@@ -1,96 +1,155 @@
 .bumpups-section {
-  padding: 4rem 0;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 0.1rem 0 0 0;
+  background: #232323;
+  min-height: 50vh;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .bumpups-container {
-  max-width: 1200px;
+  max-width: 1200px;   /* or 1300px, 1400px as you prefer */
+  width: 95%;
   margin: 0 auto;
   padding: 0 2rem;
-  text-align: center;
+  text-align: left;
 }
 
 .bumpups-title {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: 700;
-  color: #2d3748;
-  margin-bottom: 3rem;
-  background: linear-gradient(45deg, #667eea, #764ba2);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.bumpups-highlight {
+  color: #fff;
+}
+
+.bumpups-green {
+  color: #2ee59d;
+}
+
+.bumpups-subtitle {
+  color: #e0e0e0;
+  font-size: 1.05rem;
+  margin-bottom: 2.5rem;
 }
 
 .bumpups-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 .bumpup-card {
-  background: white;
+  background: #111112;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  border: 1.5px solid #2d2d2d;
   padding: 2.5rem 2rem;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10rem;
+  min-height: 100px;
+  height: 100px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.bumpup-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem; /* Adjust this value as needed */
+}
+
+.bumpup-label {
+  background: #2ee59d;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  padding: 0.3rem 1.2rem;
+  display: inline-block;
+}
+
+.bumpup-link {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: color 0.2s;
+  margin-top: 0.2rem;
   position: relative;
-  overflow: hidden;
 }
 
-.bumpup-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(45deg, #667eea, #764ba2);
+.bumpup-link:hover {
+  color: #2ee59d;
+  text-decoration: underline;
 }
 
-.bumpup-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+.bumpup-link:hover .bumpup-arrow {
+  transform: translateX(6px);
+}
+
+.bumpup-arrow {
+  font-size: 1.3rem;
+  margin-right: 0.5rem;
+  transition: transform 0.2s;
 }
 
 .bumpup-icon {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
-  display: block;
+  font-size: 4rem;
+  color: #fff;
+  margin-left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.bumpup-card h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #2d3748;
-  margin-bottom: 1rem;
+.bumpup-separator {
+  border: none;
+  border-top: 3px dashed #ccc;
+  width: 100%;
+  margin: 5rem auto;
+  opacity: 0.7;
 }
 
-.bumpup-card p {
-  color: #718096;
-  line-height: 1.6;
-  font-size: 1rem;
-  margin: 0;
+.timestamp-container {
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  border: 1.5px solid #2d2d2d;
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
-  .bumpups-section {
-    padding: 3rem 0;
-  }
-  
-  .bumpups-title {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-  }
-  
+.footer-card {
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  border: 1.5px solid #2d2d2d;
+}
+
+@media (max-width: 900px) {
   .bumpups-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+  .bumpups-title {
+    font-size: 1.5rem;
+  }
   .bumpup-card {
+    flex-direction: column;
+    align-items: flex-start;
     padding: 2rem 1.5rem;
+  }
+  .bumpup-icon {
+    margin-left: 0;
+    margin-top: 1.5rem;
+    align-self: flex-end;
+  }
+  .bumpup-left {
+    gap: 0.8rem;
   }
 }
