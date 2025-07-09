@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import './App.css';
 import LandingPage from './unAuth/LandingPage';
 
@@ -16,6 +17,9 @@ if (defaultHosts.includes(window.location.hostname)) {
 function App() {
   return (
     <div className="App">
+      <Helmet>
+        <meta name="description" content="StampTube - Your YouTube timestamp tool" />
+      </Helmet>
       <LandingPage />
     </div>
   );
