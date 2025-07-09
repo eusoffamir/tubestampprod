@@ -101,6 +101,26 @@
   background: #2563eb;
 }
 
+.generate-btn:disabled {
+  background: #6b7280;
+  cursor: not-allowed;
+}
+
+.generate-btn:disabled:hover {
+  background: #6b7280;
+}
+
+.error-message {
+  color: #ef4444;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 4px;
+  width: 100%;
+}
+
 @media (max-width: 700px) {
   .timestamp-section {
     min-height: 100vh;
