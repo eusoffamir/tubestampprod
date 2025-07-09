@@ -26,6 +26,7 @@
   color: #fff;
   margin-bottom: 0.3em;
   line-height: 1.1;
+  text-align: center;
 }
 
 .subtitle {
@@ -33,6 +34,7 @@
   color: #d1d5db;
   margin-bottom: 1.2em;
   line-height: 1.5;
+  text-align: center;
 }
 
 .subtitle a {
@@ -115,7 +117,11 @@
   background: rgba(239, 68, 68, 0.1);
   border: 1px solid rgba(239, 68, 68, 0.3);
   border-radius: 4px;
-  width: 100%;
+  width: auto;
+  box-sizing: border-box;
+  align-self: stretch;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .video-preview {
@@ -142,6 +148,7 @@
   text-align: center;
   margin-top: 0.5rem;
   word-break: break-word;
+  margin-bottom: 1.5rem;
 }
 
 .video-preview-loading {
@@ -152,28 +159,110 @@
   font-weight: 500;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
   .timestamp-section {
-    min-height: 100vh;
-    padding: 0;
+    min-height: unset;
+    padding: 0 0 0.5rem 0;
+    
   }
   .timestamp-container {
-    padding: 1.5rem 0.7rem 1.2rem 0.7rem;
+    padding: 0.5rem 0.7rem 0.5rem 0.7rem;
     min-width: 0;
-    gap: 16px;
+    width: 85%;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 24px;
+  }
+  .main-title {
+    font-size: 1.5rem;
+    margin-bottom: 0em;
+    text-align: center;
+  }
+  .subtitle {
+    font-size: 0.93rem;
+    margin-bottom: 1.5em;
+    text-align: center;
   }
   .timestamp-form {
     flex-direction: column;
     align-items: stretch;
-    gap: 0.7rem;
+    gap: 1rem;
+    width: 100%;
   }
   .input-group {
     min-width: 0;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    min-height: 40px;
+    max-height: 44px;
+    height: auto;
+  }
+  .input-icon {
+    font-size: 1.1rem;
+    line-height: 1;
+    align-self: center;
+  }
+  .url-input {
+    font-size: 1.1rem;
+    line-height: 1.2;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    width: 100%;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    vertical-align: middle;
+    height: 24px;
+    min-height: 24px;
+    max-height: 28px;
+  }
+  .lang-select {
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 0.7rem 1.2rem 0.7rem 0.7rem;
+    margin-bottom: 0.5rem;
+  }
+  .generate-btn {
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 0.8rem 0;
+    margin-top: 0.2rem;
+    margin-bottom: 0.5rem;
+  }
+  .error-message {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    width: auto;
+    box-sizing: border-box;
+    align-self: stretch;
+    margin-left: 4px;
+    margin-right: 4px;
+  }
+  .video-preview {
+    margin-top: 2.2rem;
+    gap: 1.2rem;
   }
   .video-thumbnail {
     max-width: 100%;
+    border-radius: 10px;
   }
   .video-title {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
+    margin-top: 0.7rem;
+  }
+  .video-preview-loading {
+    margin-top: 2.2rem;
+    font-size: 1.1rem;
   }
 }

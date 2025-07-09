@@ -76,9 +76,11 @@ const Timestamp = () => {
           });
         } else {
           setVideoData(null);
+          setError('No video data found');
         }
       } catch (err) {
         setVideoData(null);
+        setError('Error fetching video data');
       } finally {
         setIsFetchingVideo(false);
       }

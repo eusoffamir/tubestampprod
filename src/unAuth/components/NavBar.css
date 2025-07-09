@@ -20,7 +20,7 @@
 }
 
 .nav-logo-text {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 700;
   letter-spacing: 0.5px;
 }
@@ -45,6 +45,7 @@
   display: flex;
   align-items: center;
   transition: background 0.2s;
+  justify-content: center;
 }
 
 .nav-chatbot-btn:hover {
@@ -61,13 +62,29 @@
 @media (max-width: 600px) {
   .navbar {
     max-width: 98vw;
+    width: 82%;
     padding: 0.7rem 0.7rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.1rem;
+  }
+  .nav-logo-simple img {
+    margin-right: 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
   .nav-logo-text {
-    font-size: 1.1rem;
+    font-size: 1.4rem;
+    text-align: center;
+    width: 100%;
+    display: block;
   }
   .nav-chatbot-btn {
     padding: 0.5rem 1.1rem;
     font-size: 0.95rem;
+    width: 100%;
+    max-width: 320px;
   }
 }

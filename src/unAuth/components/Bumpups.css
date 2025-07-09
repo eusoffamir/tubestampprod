@@ -53,6 +53,13 @@
   min-height: 100px;
   height: 100px;
   transition: box-shadow 0.2s, transform 0.2s;
+  width: 90%;           /* Makes the card 90% of the container */
+  /* or */
+  width: 320px;         /* Fixed width */
+  /* or */
+  width: fit-content;   /* Shrinks to fit content */
+  /* or */
+  width: max-content;   /* Widest content */
 }
 
 .bumpup-left {
@@ -131,22 +138,115 @@
 @media (max-width: 900px) {
   .bumpups-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.2rem;
   }
   .bumpups-title {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  .bumpups-subtitle {
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 3rem;
   }
   .bumpup-card {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 2rem 1.5rem;
-  }
-  .bumpup-icon {
-    margin-left: 0;
-    margin-top: 1.5rem;
-    align-self: flex-end;
+    --bumpup-card-gap: 0.4rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 1.2rem 0.8rem;
+    gap: var(--bumpup-card-gap);
+    min-height: 70px;
+    height: auto;
+    border-radius: 18px;
+    background: #18191b;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+    border: 1.5px solid #232323;
+    width: 90%;           /* Makes the card 90% of the container */
+    margin-left: auto;
+    margin-right: auto;
   }
   .bumpup-left {
-    gap: 0.8rem;
+    flex: initial;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .bumpup-label {
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.3rem 1.1rem;
+    border-radius: 8px;
+    margin-bottom: 0.2rem;
+  }
+  .bumpup-link {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 0.1rem;
+    margin-bottom: 0.2rem;
+  }
+  .bumpup-arrow {
+    font-size: 1.1rem;
+    margin-right: 0.4rem;
+  }
+  .bumpup-icon {
+    font-size: 2.5rem;
+    align-self: center;
+    color: #2ee59d;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .bumpups-container {
+    width: 85%;
+    padding: 0 0.2rem;
+  }
+  .bumpups-title {
+    font-size: 1rem;
+  }
+  .bumpups-subtitle {
+    font-size: 0.92rem;
+    margin-bottom: 0.5rem; /* Reduced from default or 3rem to minimize vertical gap */
+  }
+  .bumpup-card {
+    --bumpup-card-gap: 3rem;
+    padding: 1rem 0.2rem;
+    gap: var(--bumpup-card-gap);
+    min-height: 50px;
+    border-radius: 14px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 80%;           /* Makes the card 90% of the container */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .bumpup-left {
+    flex: initial;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .bumpup-label {
+    font-size: 0.9rem;
+    padding: 0.18rem 0.7rem;
+    border-radius: 7px;
+  }
+  .bumpup-link {
+    font-size: 0.85rem;
+  }
+  .bumpup-arrow {
+    font-size: 0.95rem;
+    margin-right: 0.2rem;
+  }
+  .bumpup-icon {
+    font-size: 2rem;
+    align-self: center;
+    flex-shrink: 0;
   }
 }

@@ -134,6 +134,10 @@
   .feature-card {
     padding: 20px;
   }
+  
+  .landing-page {
+    gap: 0.5rem; /* Reduced gap for mobile */
+  }
 }
 
 @media (max-width: 480px) {
@@ -148,5 +152,8 @@
   .cta-button {
     padding: 12px 30px;
     font-size: 1rem;
+  }
+  .landing-page {
+    gap: 0.3rem; /* Even smaller gap for very small screens */
   }
 }
