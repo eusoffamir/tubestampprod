@@ -63,4 +63,5 @@ export {
   analytics,
   auth,
   functions,
+  appCheck,
 };
