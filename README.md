@@ -1,6 +1,6 @@
 # tubestamp
 
-AI YouTube Timestamps Generator
+AI YouTube Timestamps Generator (https://stamptube.online/)
 
 This project generates AI-powered timestamps for YouTube videos using the Bumpups API, with a React frontend and Firebase backend (Cloud Functions, Hosting, Auth, and App Check). It supports YouTube links from both desktop and mobile, including all common formats.
 
